@@ -1,0 +1,36 @@
+<div>
+    <div *ngIf="currentType.idtype" class="edit-form">
+      <h4>Tipo de Cliente</h4>
+      <form>
+        <div class="form-group">
+          <label for="typName">Tipo de Cliente</label>
+          <input
+            type="text"
+            class="form-control"
+            id="typName"
+            [(ngModel)]="currentType.typeName"
+            name="typName"
+          />
+        </div>
+      </form>
+  
+      <button class="btn btn-danger" (click)="deleteType()">
+        Borrar
+      </button>
+  
+      <button
+        type="submit"
+        class="btn btn-warning"
+        (click)="updateType()"
+      >
+        Actualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentType.idtype">
+      <br />
+      <p>No se puede acceder a este registro...</p>
+    </div>
+  </div>
+  

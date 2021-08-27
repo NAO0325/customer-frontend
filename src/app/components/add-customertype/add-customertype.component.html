@@ -1,0 +1,25 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="typName">Tipo de Cliente</label>
+          <input
+            type="text"
+            class="form-control"
+            id="typName"
+            required
+            [(ngModel)]="customerType.typeName"
+            name="typName"
+          />
+        </div>
+  
+        <button (click)="saveCustomerType()" class="btn btn-success">Guardar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Tipo de Cliente guardado exitosamente!</h4>
+        <button class="btn btn-success" (click)="newCustomerType()">Agregar</button>
+      </div>
+    </div>
+  </div>
+  

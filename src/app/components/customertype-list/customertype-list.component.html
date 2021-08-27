@@ -1,0 +1,36 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Lista de Tipos de Cliente</h4>
+
+    <button class="btn btn-primary" routerLink="/add"> Agregar</button>
+    <br/><br/>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let type of types; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveType(type, i)">
+        {{ type.typeName }}
+      </li>
+    </ul>
+
+  </div>
+  <div class="col-md-6">
+    <br/><br/><br/>
+    <div *ngIf="currentType">
+      <h4>Tipo de Cliente</h4>
+      <div>
+        <label><strong>ID:</strong></label> {{ currentType.idtype }}
+      </div>
+      <div>
+        <label><strong>Tipo de Cliente:</strong></label> {{ currentType.typeName }}
+      </div>
+      <br />
+      <a class="btn btn-primary" routerLink="/customertype/{{ currentType.idtype }}">
+        Editar
+      </a>
+    </div>
+
+    <div *ngIf="!currentType">
+      <br />
+      <p>Por favor seleccione un tipo de cliente...</p>
+    </div>
+  </div>
+</div>
