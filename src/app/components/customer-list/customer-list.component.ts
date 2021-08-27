@@ -60,7 +60,7 @@ export class CustomerListComponent implements OnInit {
         });
   }
 
-  nameType(idtype: number): any {
+  nameType(idtype: any): any {
     let name: String = '';
     if (this.types) {
       for (let i = 0; i < this.types.length; i++) {
