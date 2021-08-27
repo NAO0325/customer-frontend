@@ -1,0 +1,48 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Lista de Cliente</h4>
+
+        <button class="btn btn-primary" routerLink="/addcustomer"> Agregar</button>
+        <br /><br />
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let customer of customers; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveCustomer(customer, i)">
+                {{ customer.customerName }}
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-6">
+        <br /><br /><br /><br />
+        <div *ngIf="currentCustomer">
+            <h4>Cliente</h4>
+            <div>
+                <label><strong>ID:</strong></label> {{ currentCustomer.idcustomer }}
+            </div>
+            <div>
+                <label><strong>Razón Social:</strong></label> {{ currentCustomer.customerName }}
+            </div>
+            <div>
+                <label><strong>Tipo de Cliente:</strong></label> {{ currentCustomer.idtype }}
+            </div>
+            <div>
+                <label><strong>Identificación:</strong></label> {{ currentCustomer.dni }}
+            </div>
+            <div>
+                <label><strong>Región:</strong></label> {{ currentCustomer.region }}
+            </div>
+            <div>
+                <label><strong>Contacto:</strong></label> {{ currentCustomer.contact }}
+            </div>
+            <br />
+            <a class="btn btn-primary" routerLink="/customer/{{ currentCustomer.idcustomer }}">
+                Editar
+            </a>
+        </div>
+
+        <div *ngIf="!currentCustomer">
+            <br />
+            <p>Por favor seleccione un cliente...</p>
+        </div>
+    </div>
+</div>

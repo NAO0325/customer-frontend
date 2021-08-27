@@ -3,7 +3,7 @@
     <h4>Lista de Tipos de Cliente</h4>
 
     <button class="btn btn-primary" routerLink="/add"> Agregar</button>
-    <br/><br/>
+    <br /><br />
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let type of types; let i = index" [class.active]="i == currentIndex"
         (click)="setActiveType(type, i)">
@@ -13,7 +13,7 @@
 
   </div>
   <div class="col-md-6">
-    <br/><br/><br/>
+    <br /><br /><br /><br />
     <div *ngIf="currentType">
       <h4>Tipo de Cliente</h4>
       <div>

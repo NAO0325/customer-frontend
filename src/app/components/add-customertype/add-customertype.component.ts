@@ -20,13 +20,6 @@ export class AddCustomertypeComponent implements OnInit {
   }
 
   saveCustomerType(): void {
-    //const data = {
-    //  typName: this.customerType.typeName
-    //};
-
-    //console.log('name: ' + this.customerType.typeName)
-    //console.log('data: ' + data)
-
     this.customerTypeService.create(this.customerType)
       .subscribe(
         response => {

@@ -1,0 +1,55 @@
+<div>
+    <div *ngIf="currentCustomer.idcustomer" class="edit-form">
+      <h4>Cliente</h4>
+      <form>
+        <div class="form-group">
+            <label for="customerName">Razón Social</label>
+            <input type="text" class="form-control" id="customerName" required [(ngModel)]="currentCustomer.customerName"
+                name="customerName" />
+        </div>
+
+        <div class="form-group">
+            <label for="idtype">Tipo de Cliente</label>
+            <select class="form-control" id="idtype" required [(ngModel)]="currentCustomer.idtype" name="idtype">
+                <option [value]="type.idtype" *ngFor="let type of types">{{type.typeName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dni">Identificación</label>
+            <input type="text" class="form-control" id="dni" required [(ngModel)]="currentCustomer.dni" name="dni" />
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contacto</label>
+            <input type="text" class="form-control" id="contact" required [(ngModel)]="currentCustomer.contact"
+                name="contact" />
+        </div>
+
+        <div class="form-group">
+            <label for="region">Región</label>
+            <input type="text" class="form-control" id="region" required [(ngModel)]="currentCustomer.region"
+                name="region" />
+        </div>
+      </form>
+  
+      <button class="btn btn-danger" (click)="deleteCustomer()">
+        Borrar
+      </button>
+  
+      <button
+        type="submit"
+        class="btn btn-warning"
+        (click)="updateCustomer()"
+      >
+        Actualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentCustomer.idcustomer">
+      <br />
+      <p>No se puede acceder a este registro...</p>
+    </div>
+  </div>
+  

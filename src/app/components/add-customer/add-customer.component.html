@@ -1,0 +1,42 @@
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="customerName">Razón Social</label>
+                <input type="text" class="form-control" id="customerName" required [(ngModel)]="customer.customerName"
+                    name="customerName" />
+            </div>
+
+            <div class="form-group">
+                <label for="idtype">Tipo de Cliente</label>
+                <select class="form-control" id="idtype" required [(ngModel)]="customer.idtype" name="idtype">
+                    <option [value]="type.idtype" *ngFor="let type of types">{{type.typeName}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dni">Identificación</label>
+                <input type="text" class="form-control" id="dni" required [(ngModel)]="customer.dni" name="dni" />
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contacto</label>
+                <input type="text" class="form-control" id="contact" required [(ngModel)]="customer.contact"
+                    name="contact" />
+            </div>
+
+            <div class="form-group">
+                <label for="region">Región</label>
+                <input type="text" class="form-control" id="region" required [(ngModel)]="customer.region"
+                    name="region" />
+            </div>
+
+            <button (click)="saveCustomer()" class="btn btn-success">Guardar</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Cliente guardado exitosamente!</h4>
+            <button class="btn btn-success" (click)="newCustomer()">Agregar</button>
+        </div>
+    </div>
+</div>
